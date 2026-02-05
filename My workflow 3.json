@@ -1,0 +1,96 @@
+{
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "CUSTOM.telegramPollingTrigger",
+      "typeVersion": 1,
+      "position": [
+        -96,
+        0
+      ],
+      "id": "84c64bd3-8c29-425e-a1f0-160190b479d0",
+      "name": "Telegram Trigger",
+      "credentials": {
+        "telegramApi": {
+          "id": "8BgfDWhncDFPDXhA",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        80,
+        0
+      ],
+      "id": "aa692b82-12c5-4ba9-a8ca-209efcb9d748",
+      "name": "Execute a command",
+      "credentials": {
+        "sshPassword": {
+          "id": "5qpTLmAl7HJ01TdM",
+          "name": "SSH Password account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        256,
+        0
+      ],
+      "id": "d4ba65f3-bad4-4d94-b598-a71f4d0f5706",
+      "name": "Send a text message",
+      "webhookId": "6adc86dc-fe36-4511-afe5-6b7befa08fdf",
+      "credentials": {
+        "telegramApi": {
+          "id": "8BgfDWhncDFPDXhA",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute a command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute a command": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "adc79f1e-c3f9-4e3d-9595-24334b5ffcc2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "88a373814c8af1bbad46be27ee723e9319f48b80b2179d7f312afd2f03dcf330"
+  },
+  "id": "9RUy7XT1bho7bIMc",
+  "tags": []
+}
