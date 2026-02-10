@@ -56,14 +56,24 @@ chmod 600 ~/.ssh/authorized_keys
 
 5. Troubleshooting
 Error	                            Cause	                              Resolution
-Unsupported key format      	Incorrect private key encoding.	    Re-generate key using -m PEM flag.
+Unsupported key format      	  Incorrect private key encoding.	    Re-generate key using -m PEM flag.
 getaddrinfo ENOTFOUND	        Host resolution failure.	          Verify IP address and check for trailing spaces.
-Connection timed out	        Network or firewall restriction.	  Ensure port 22 is open on the target server.
-zsh: set: no such option	    Shell incompatibility (Zsh).	      Execute command via Bash: bash -c "command".
+Connection timed out	        Network or firewall restriction.	    Ensure port 22 is open on the target server.
+zsh: set: no such option	  Shell incompatibility (Zsh).	    Execute command via Bash: bash -c "command".
+Directory Specification                    -                          When using the SSH Execute Command node, always specify absolute paths (e.g., `/home/user/data`) or
+
+use a `cd` command before your main instruction:                
+Example: `cd /your/target/directory && ls -la`
+   By default, SSH sessions may start in the user's home directory, so explicit path specification is mandatory for predictable results.
 
 
 Command History Logging
 By default, non-interactive SSH sessions do not record commands in the system history. To force logging, use the following syntax:
 
 bash -c "export HISTFILE=~/.bash_history && set -o history && <COMMAND> && history -a"
+
+### Telegram Integration
+To receive notifications, you must provide your own Telegram Bot Token and Chat ID.
+*   **Chat ID:** You must manually obtain your unique Telegram Chat ID (e.g., using @userinfobot) and paste it into the "Chat ID" field of the Telegram node.
+*   **Bot Father:** Create your bot via @BotFather to get the API Token before running the workflow.
 
