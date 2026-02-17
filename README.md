@@ -54,13 +54,13 @@ chmod 600 ~/.ssh/authorized_keys
     User: Enter the appropriate system user (e.g., root, ubuntu).
     Private Key: Paste the complete content of the n8n_deploy_key file, including the header and footer lines.
 
-5. Troubleshooting
+5.Troubleshooting
 Error	                            Cause	                              Resolution
-Unsupported key format      	  Incorrect private key encoding.	    Re-generate key using -m PEM flag.
-getaddrinfo ENOTFOUND	        Host resolution failure.	          Verify IP address and check for trailing spaces.
-Connection timed out	        Network or firewall restriction.	    Ensure port 22 is open on the target server.
-zsh: set: no such option	  Shell incompatibility (Zsh).	    Execute command via Bash: bash -c "command".
-Directory Specification                    -                          When using the SSH Execute Command node, always specify absolute paths (e.g., `/home/user/data`) or
+1.Unsupported key format      	  Incorrect private key encoding.	    Re-generate key using -m PEM flag.
+2.getaddrinfo ENOTFOUND	        Host resolution failure.	          Verify IP address and check for trailing spaces.
+3.Connection timed out	        Network or firewall restriction.	    Ensure port 22 is open on the target server.
+4.zsh: set: no such option	  Shell incompatibility (Zsh).	    Execute command via Bash: bash -c "command".
+5.Directory Specification                    -                          When using the SSH Execute Command node, always specify absolute paths (e.g., `/home/user/data`) or
 
 use a `cd` command before your main instruction:                
 Example: `cd /your/target/directory && ls -la`
