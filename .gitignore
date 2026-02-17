@@ -4,7 +4,11 @@ n8n_deploy_key
 id_rsa
 id_ed25519
 *.pem
-
+versionId
+instanceId
+id
+webhookId
+id
 # Публичные ключи (опционально, но лучше не захламлять репозиторий)
 *.pub
 
