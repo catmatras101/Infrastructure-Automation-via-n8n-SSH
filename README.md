@@ -65,11 +65,7 @@ Error	                            Cause	                              Resolution
 
 4.zsh: set: no such option	  Shell incompatibility (Zsh).	    Execute command via Bash: bash -c "command".
 
-5.Directory Specification                    -                          When using the SSH Execute Command node, always specify absolute paths (e.g., `/home/user/data`) or
-
-use a `cd` command before your main instruction:                
-Example: `cd /your/target/directory && ls -la`
-   By default, SSH sessions may start in the user's home directory, so explicit path specification is mandatory for predictable results.
+5.Directory Specification                    -                          When using the SSH Execute Command node, always specify absolute paths (e.g., `/home/user/data`) 
 
 
 Command History Logging
